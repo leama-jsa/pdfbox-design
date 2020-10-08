@@ -45,7 +45,7 @@ public class ImageElement implements Element, Drawable, Dividable,
     }
 
     @Override
-    public float getWidth() throws IOException {
+    public float getWidth() {
         if (width == SCALE_TO_RESPECT_WIDTH) {
             if (getMaxWidth() > 0 && image.getWidth() > getMaxWidth()) {
                 return getMaxWidth();
@@ -67,7 +67,7 @@ public class ImageElement implements Element, Drawable, Dividable,
     }
 
     @Override
-    public float getHeight() throws IOException {
+    public float getHeight() {
         if (height == SCALE_TO_RESPECT_WIDTH) {
             if (getMaxWidth() > 0 && image.getWidth() > getMaxWidth()) {
                 return getMaxWidth() / (float) image.getWidth()
