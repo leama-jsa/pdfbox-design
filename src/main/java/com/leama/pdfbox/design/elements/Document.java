@@ -1,5 +1,9 @@
 package com.leama.pdfbox.design.elements;
 
+import com.leama.pdfbox.design.elements.render.*;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -10,17 +14,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.concurrent.CopyOnWriteArrayList;
-
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.common.PDRectangle;
-
-import com.leama.pdfbox.design.elements.render.Layout;
-import com.leama.pdfbox.design.elements.render.LayoutHint;
-import com.leama.pdfbox.design.elements.render.RenderContext;
-import com.leama.pdfbox.design.elements.render.RenderListener;
-import com.leama.pdfbox.design.elements.render.Renderer;
-import com.leama.pdfbox.design.elements.render.VerticalLayout;
-import com.leama.pdfbox.design.elements.render.VerticalLayoutHint;
 
 /**
  * The central class for creating a document.
@@ -38,6 +31,7 @@ public class Document implements RenderListener {
 
     private PDDocument pdDocument;
     private PageFormat pageFormat;
+    private PDDocumentFactory pdDocumentFactory = new DefaultPDDocumentFactory();
 
     /**
      * Creates a Document using the {@link #DEFAULT_PAGE_FORMAT}.
@@ -219,7 +213,7 @@ public class Document implements RenderListener {
      */
     public PDDocument getPDDocument() {
         if (pdDocument == null) {
-            pdDocument = new PDDocument();
+            pdDocument = pdDocumentFactory.create();
         }
         return pdDocument;
     }
@@ -363,4 +357,16 @@ public class Document implements RenderListener {
         }
     }
 
+    /**
+     * Set factory for creating PDDocument
+     *
+     * @param factory the factory to set
+     * @throws IllegalArgumentException if factory is null
+     */
+    public void setPDDocumentFactory(PDDocumentFactory factory) {
+        if (factory == null) {
+            throw new IllegalArgumentException("Factory cannot be null");
+        }
+        this.pdDocumentFactory = factory;
+    }
 }
