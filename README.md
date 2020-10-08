@@ -1,6 +1,6 @@
 [![](https://jitpack.io/v/leama-jsa/pdfbox-design.svg)](https://jitpack.io/#leama-jsa/pdfbox-design)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
-com.github.leama-jsa:pdfbox-design:0.0.1
+
 # pdfbox-design
 A fork of [pdfbox-layout](https://github.com/ralfstuckert/pdfbox-layout) with the latest PDFBox dependency and few improvements
 
@@ -31,7 +31,7 @@ These articles may also be useful as a short introduction:
     <dependency>
         <groupId>com.github.leama-jsa</groupId>
         <artifactId>pdfbox-design</artifactId>
-        <version>0.0.1</version>
+        <version>0.0.2</version>
     </dependency>
 ```
 
@@ -43,6 +43,6 @@ These articles may also be useful as a short introduction:
         maven { url "https://jitpack.io" }
    }
    dependencies {
-         implementation 'com.github.leama-jsa:pdfbox-design:0.0.1'
+         implementation 'com.github.leama-jsa:pdfbox-design:0.0.2'
    }
 ```
